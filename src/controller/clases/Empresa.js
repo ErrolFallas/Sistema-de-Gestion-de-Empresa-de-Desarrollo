@@ -1,13 +1,15 @@
 class Empresa {
-    constructor(nombre, departamentos = []) {
+    constructor(nombre, departamentos = "[]") {
         this.nombre = nombre
         this.departamentos = JSON.parse(localStorage.getItem("departamentos") || departamentos)
-        this.empleadoPorDepartamento=JSON.parse(localStorage.getItem("empleados")) || []
+        this.empleadoPorDepartamento=JSON.parse(localStorage.getItem("empleados")) || "[]"
     }
 
     agregarDepartamentos(departamento) {
         this.departamentos.push(departamento)
         localStorage.setItem("departamentos", JSON.stringify(this.departamentos))
+        console.log("el departamento " + this.departamentos + " ha sido registrado con éxito al departamento: " + this.nombre);
+        
     }
 
     mostrarInfoEmpresa(){

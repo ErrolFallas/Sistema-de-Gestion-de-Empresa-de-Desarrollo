@@ -1,6 +1,31 @@
 import Empresa from "../controller/clases/Empresa.js";
-import Empresa from "../controller/clases/Departamento.js";
-import Empresa from "../controller/clases/Empleado.js";
+import Departamento from "../controller/clases/Departamento.js";
+import Empleado from "../controller/clases/Empleado.js";
+
+
+const empresa1= new Empresa ("Fressia Explotación")
+
+const departamento1=new Departamento("Desarrollo")
+const departamento2=new Departamento("Diseño")
+const departamento3=new Departamento("QA")
+const departamento4=new Departamento("Marketing")
+const departamento5=new Departamento("Recursos Humanos")
+
+const empleado1=new Empleado("Sarai", "gerente")
+const empleado2=new Empleado("Andres", "ingeniero")
+const empleado3=new Empleado("Steven", "gerente")
+
+
+empresa1.agregarDepartamentos(departamento1) 
+empresa1.agregarDepartamentos(departamento2)
+empresa1.agregarDepartamentos(departamento3) 
+empresa1.agregarDepartamentos(departamento4) 
+empresa1.agregarDepartamentos(departamento5)  
+
+departamento1.agregarEmpleados(empleado1)
+departamento1.agregarEmpleados(empleado2)
+departamento2.agregarEmpleados(empleado3)
+
 
 /* function menu() {
     let entrar = true
@@ -22,3 +47,7 @@ import Empresa from "../controller/clases/Empleado.js";
 
 menu()
  */
+
+
+
+
