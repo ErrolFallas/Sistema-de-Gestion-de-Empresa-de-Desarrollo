@@ -33,16 +33,13 @@ class Departamento {
 
     mostrarEmpleados() {
         console.log("Empleados del departamento: ", this.nombreDepartamento);
-        /* const buscarEmpleados= JSON.parse(localStorage.getItem("departamentos"))
-        const existenEmpleados=buscarEmpleados.filter(e=> e.nombreEmpleado)
-        if (existenEmpleados.length===0) {
-            console.log("No existen empleados en este departamento");
-            return;
-        } */
-       if (this.listaEmpleados.length === 0) {
+        const buscarEmpleados= JSON.parse(localStorage.getItem("departamentos")|| [])
+        const existenEmpleados=buscarEmpleados.find(d=> d.nombreDepartamento === this.nombreDepartamento)
+        if (!existenEmpleados|| !existenEmpleados.listaEmpleados||existenEmpleados.listaEmpleados.length===0) {
+        
             console.log("No hay registro");
        } else {
-        this.listaEmpleados.forEach(departamento => {
+        existenEmpleados.listaEmpleados.forEach(departamento => {
             if (departamento.nombreEmpleado === "") {
                 console.log("No hay empleado");
             } else {

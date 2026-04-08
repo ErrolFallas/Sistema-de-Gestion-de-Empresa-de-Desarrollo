@@ -61,7 +61,7 @@ departamento3.mostrarEmpleados()
 function menu() {
     let entrar = true
     while (entrar === true) {
-        let opcion = prompt("Digita alguna de las opciones 1. Crear un departamento.\n2. Agregar un empleado a un departamento.\n3. Mostrar la info de la empresa\n4. Salir del sistema")
+        let opcion = prompt("Digita alguna de las opciones:\n 1. Crear un departamento.\n2. Agregar un empleado a un departamento.\n3. Mostrar la info de la empresa\n4. Salir del sistema")
         if (opcion === "1") {
             alert("Crear un departamento")
             console.log("Crear un departamento");
