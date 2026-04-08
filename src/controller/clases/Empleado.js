@@ -5,7 +5,6 @@ class Empleado {
     }
 
     mostrarInfoEmpleado(){
-        console.log("empleados a despedir");
         console.log(this.nombreEmpleado);
         console.log(this.puesto);
     }

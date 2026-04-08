@@ -7,13 +7,15 @@ class Departamento {
     agregarEmpleados(empleado) {
         this.listaEmpleados.push(empleado)
         localStorage.setItem("empleados", JSON.stringify(this.listaEmpleados))
+   console.log("Empleado agregado: ",empleado.nombreEmpleado);
+   
     }
 
     mostrarEmpleados() {
-        console.log("Empleados del departamento");
-        this.listaEmpleados.forEach(departamento => {
-            console.log(departamento.nombreDepartamento);
-            console.log(departamento.listaEmpleados);
+        console.log("Empleados del departamento: ",this.nombreDepartamento);
+        this.listaEmpleados.forEach(empleado => {
+            console.log("Nombre: ",empleado.nombreEmpleado);
+            console.log("Puesto: ",empleado.puesto);
         });
 
     }
