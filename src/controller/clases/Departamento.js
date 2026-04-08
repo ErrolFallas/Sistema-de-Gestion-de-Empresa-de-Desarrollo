@@ -1,5 +1,5 @@
 class Departamento {
-    constructor(nombreDepartamento, listaEmpleados = "[]") {
+    constructor(nombreDepartamento, listaEmpleados = []) {
         this.nombreDepartamento = nombreDepartamento
         this.listaEmpleados = JSON.parse(localStorage.getItem("empleados")) || listaEmpleados
         
