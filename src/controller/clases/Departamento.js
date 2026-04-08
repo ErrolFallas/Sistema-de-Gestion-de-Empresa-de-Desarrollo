@@ -5,26 +5,26 @@ class Departamento {
     }
 
     agregarEmpleados(empleado) {
-        /* Cargar los departamentos registrados en el sistema */
-        const departamentosDeEmpresa = JSON.parse(localStorage.getItem("departamentos")) || []
+
+        const departamentosDeEmpresa = JSON.parse(localStorage.getItem("departamentos")) || [] /* Cargar los departamentos registrados en el sistema */
         const departamentoEnStorage = departamentosDeEmpresa.find(d => d.nombreDepartamento === this.nombreDepartamento)
 
-        /* Validar si el departamento existe antes de intentar guardar empleados */
+
         if (!departamentoEnStorage) {
             console.log("Error: Departamento inexistente en el sistema.");
             return;
-        }
+        } /* Validar si el departamento existe antes de intentar guardar empleados */
 
-        /* Sincronizar la lista de memoria con la de almacenamiento para no perder datos previos */
-        this.listaEmpleados = departamentoEnStorage.listaEmpleados || [];
 
-        /* Solo agregar si el empleado no existe en este departamento (evita duplicados) */
+        this.listaEmpleados = departamentoEnStorage.listaEmpleados || []; /* Sincronizar la lista de memoria con la de almacenamiento para no perder datos previos */
+
+
         const existe = this.listaEmpleados.some(e => e.nombreEmpleado === empleado.nombreEmpleado)
         if (!existe) {
-            this.listaEmpleados.push(empleado)
+            this.listaEmpleados.push(empleado) /* Solo agregar si el empleado no existe en este departamento (evita duplicados) */
 
-            /* Actualizar la lista en el registro global */
-            departamentoEnStorage.listaEmpleados = this.listaEmpleados
+
+            departamentoEnStorage.listaEmpleados = this.listaEmpleados /* Actualizar la lista en el registro global */
             localStorage.setItem("departamentos", JSON.stringify(departamentosDeEmpresa))
 
             console.log("Empleado agregado: " + empleado.nombreEmpleado + " al departamento " + this.nombreDepartamento);
@@ -33,11 +33,27 @@ class Departamento {
 
     mostrarEmpleados() {
         console.log("Empleados del departamento: ", this.nombreDepartamento);
+        /* const buscarEmpleados= JSON.parse(localStorage.getItem("departamentos"))
+        const existenEmpleados=buscarEmpleados.filter(e=> e.nombreEmpleado)
+        if (existenEmpleados.length===0) {
+            console.log("No existen empleados en este departamento");
+            return;
+        } */
+       if (this.listaEmpleados.length === 0) {
+            console.log("No hay registro");
+       } else {
         this.listaEmpleados.forEach(departamento => {
-            console.log("Nombre: ", departamento.nombreEmpleado);
-            console.log("Puesto: ", departamento.puesto);
+            if (departamento.nombreEmpleado === "") {
+                console.log("No hay empleado");
+            } else {
+                console.log("Nombre: ", departamento.nombreEmpleado);
+                console.log("Puesto: ", departamento.puesto);
+            }
         });
 
+       }
+
+        
     }
 }
 export default Departamento
