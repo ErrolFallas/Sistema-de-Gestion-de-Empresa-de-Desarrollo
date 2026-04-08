@@ -1,3 +1,5 @@
+import Departamento from "./Departamento.js";
+
 class Empresa {
     constructor(nombre, departamentos = []) {
         this.nombre = nombre
@@ -6,17 +8,21 @@ class Empresa {
     }
 
     agregarDepartamentos(departamento) {
-        this.departamentos.push(departamento)
-        localStorage.setItem("departamentos", JSON.stringify(this.departamentos))
-        console.log("Departamentos registrados:", departamento.nombreDepartamento)
+        // Solo agregar si el departamento no existe ya (evita duplicados al recargar)
+        const existe = this.departamentos.some(d => d.nombreDepartamento === departamento.nombreDepartamento)
+        if (!existe) {
+            this.departamentos.push(departamento)
+            localStorage.setItem("departamentos", JSON.stringify(this.departamentos))
+            console.log("Departamentos registrados:", departamento.nombreDepartamento)
+        }
     }
 
-    mostrarInfoEmpresa(){
-        console.log("Nombre de la empresa"+this.nombre);
-        console.log("Nombre del departamento");
+    mostrarInfoEmpresa() {
+        console.log("Nombre de la empresa: " + this.nombre);
+        console.log("Informacion de cada departamento");
         this.departamentos.forEach(departamento => {
-            console.log("Nombre: ",departamento.nombreDepartamento);
-            console.log("Lista de empleado: ",departamento.listaEmpleados);
+            console.log("Nombre: " + departamento.nombreDepartamento);
+            console.log("Lista de empleado: " + departamento.listaEmpleados);
         });
     }
 }

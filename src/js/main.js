@@ -15,18 +15,32 @@ const empleado1=new Empleado("Sarai", "gerente")
 const empleado2=new Empleado("Andres", "ingeniero")
 const empleado3=new Empleado("Steven", "gerente")
 
+    console.log("---Registro de departamentos---");
 
-empresa1.agregarDepartamentos(departamento1) 
-empresa1.agregarDepartamentos(departamento2)
-empresa1.agregarDepartamentos(departamento3) 
-empresa1.agregarDepartamentos(departamento4) 
-empresa1.agregarDepartamentos(departamento5)  
+    empresa1.agregarDepartamentos(departamento1) 
+    empresa1.agregarDepartamentos(departamento2)
+    empresa1.agregarDepartamentos(departamento3) 
+    empresa1.agregarDepartamentos(departamento4) 
+    empresa1.agregarDepartamentos(departamento5)  
 
-departamento1.agregarEmpleados(empleado1)
-departamento1.agregarEmpleados(empleado2)
-departamento2.agregarEmpleados(empleado3)
+    console.log("---Registro de empleados---");
 
+    departamento1.agregarEmpleados(empleado1)
+    departamento1.agregarEmpleados(empleado2)
+    departamento2.agregarEmpleados(empleado3)
 
+console.log("---Informacion de la empresa---");
+
+empresa1.mostrarInfoEmpresa()
+
+console.log("---Informacion de los departamentos---");
+/* 
+departamento1.mostrarEmpleados()
+departamento2.mostrarEmpleados()
+departamento3.mostrarEmpleados()
+departamento4.mostrarEmpleados()
+departamento5.mostrarEmpleados()
+ */
 /* function menu() {
     let entrar = true
     while (entrar === true) {
